@@ -178,38 +178,38 @@ const MarketNews = () => {
 
     const getSentimentColor = (sentiment) => {
         switch(sentiment) {
-            case 'positive': return 'text-green-600 bg-green-50'; // FIXED: added bg
-            case 'neutral': return 'text-yellow-600 bg-yellow-50';
-            case 'negative': return 'text-red-600 bg-red-50';
-            default: return 'text-gray-600 bg-gray-50'; 
+            case 'positive': return 'text-green-600 bg-green-50 dark:text-green-400 dark:bg-green-900/20';
+            case 'neutral': return 'text-yellow-600 bg-yellow-50 dark:text-yellow-400 dark:bg-yellow-900/20';
+            case 'negative': return 'text-red-600 bg-red-50 dark:text-red-400 dark:bg-red-900/20';
+            default: return 'text-gray-600 bg-gray-50 dark:text-gray-300 dark:bg-gray-700/40'; 
         }
     };
 
     const getImpactColor = (impact) => { // FIXED: spelling
         switch(impact){
-            case 'high impact': return "text-red-600 bg-red-50";
-            case 'medium impact': return "text-yellow-600 bg-yellow-50";
-            case 'low impact': return "text-blue-600 bg-blue-50"; // FIXED: changed to blue
-            default: return "text-gray-600 bg-gray-50";
+            case 'high impact': return "text-red-600 bg-red-50 dark:text-red-400 dark:bg-red-900/20";
+            case 'medium impact': return "text-yellow-600 bg-yellow-50 dark:text-yellow-400 dark:bg-yellow-900/20";
+            case 'low impact': return "text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-900/20";
+            default: return "text-gray-600 bg-gray-50 dark:text-gray-300 dark:bg-gray-700/40";
         }
     };
 
     const getTopicColor = (color) => {
         switch(color) {
-            case 'blue': return 'text-blue-700 bg-blue-50 border-blue-200';
-            case 'green': return 'text-green-700 bg-green-50 border-green-200';
-            case 'red': return 'text-red-700 bg-red-50 border-red-200';
-            case 'purple': return 'text-purple-700 bg-purple-50 border-purple-200'; // FIXED: added purple
-            default: return 'text-gray-700 bg-gray-50 border-gray-200';
+            case 'blue': return 'text-blue-700 bg-blue-50 border-blue-200 dark:text-blue-300 dark:bg-blue-900/20 dark:border-blue-800';
+            case 'green': return 'text-green-700 bg-green-50 border-green-200 dark:text-green-300 dark:bg-green-900/20 dark:border-green-800';
+            case 'red': return 'text-red-700 bg-red-50 border-red-200 dark:text-red-300 dark:bg-red-900/20 dark:border-red-800';
+            case 'purple': return 'text-purple-700 bg-purple-50 border-purple-200 dark:text-purple-300 dark:bg-purple-900/20 dark:border-purple-800';
+            default: return 'text-gray-700 bg-gray-50 border-gray-200 dark:text-gray-200 dark:bg-gray-700/40 dark:border-gray-600';
         }
     };
 
     return (
-        <div className='min-h-screen bg-gray-50 p-4 md:p-6'>
+        <div className='min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-6'>
             <div className='max-w-7xl mx-auto'>
                 <div className='mb-6'>
-                    <h1 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>Market News</h1>
-                    <p className='text-gray-600'>Stay updated with the latest financial news and market insights</p>
+                    <h1 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2'>Market News</h1>
+                    <p className='text-gray-600 dark:text-gray-300'>Stay updated with the latest financial news and market insights</p>
                 </div>
 
                 <div className='mb-6'>
@@ -219,17 +219,17 @@ const MarketNews = () => {
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder='Search news articles...'
-                            className='w-full px-4 py-3 pl-12 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                            className='w-full px-4 py-3 pl-12 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent'
                         />
                         <Search className='absolute left-4 top-3.5 text-gray-400' size={20}/>
                     </div>
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-6'>
-                    <div className='bg-white p-6 rounded-xl shadow-sm'>
+                    <div className='bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm'>
                         <div className='flex items-center gap-2 mb-4'>
-                            <TrendingUp size={20} className='text-gray-600'/>
-                            <h2 className='font-semibold text-gray-900'>Trending Topics</h2>
+                            <TrendingUp size={20} className='text-gray-600 dark:text-gray-300'/>
+                            <h2 className='font-semibold text-gray-900 dark:text-white'>Trending Topics</h2>
                         </div>
                         <div className='flex flex-wrap gap-2'>
                             {trendingTopics.map((topic, index) => (
@@ -243,23 +243,23 @@ const MarketNews = () => {
                         </div>
                     </div>
 
-                    <div className='bg-white p-6 rounded-xl shadow-sm'>
+                    <div className='bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm'>
                         <div className='flex items-center gap-2 mb-4'>
-                            <Calendar size={20} className='text-gray-600'/>
-                            <h2 className='font-semibold text-gray-900'>Today's Articles</h2>
+                            <Calendar size={20} className='text-gray-600 dark:text-gray-300'/>
+                            <h2 className='font-semibold text-gray-900 dark:text-white'>Today's Articles</h2>
                         </div>
-                        <div className='text-4xl font-bold text-gray-900 mb-1'>{articles.length}</div>
-                        <div className='text-sm text-gray-600'>Articles loaded</div>
+                        <div className='text-4xl font-bold text-gray-900 dark:text-white mb-1'>{articles.length}</div>
+                        <div className='text-sm text-gray-600 dark:text-gray-300'>Articles loaded</div>
                     </div>
 
-                    <div className='bg-white p-6 rounded-xl shadow-sm'>
-                        <h2 className='font-semibold text-gray-900 mb-4'>Market Sentiment</h2>
+                    <div className='bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm'>
+                        <h2 className='font-semibold text-gray-900 dark:text-white mb-4'>Market Sentiment</h2>
                         <div className='space-y-2'>
                             <div className='flex justify-between items-center'>
-                                <span className='text-green-600 font-medium'>Positive: {sentiment.positive}%</span>
-                                <span className='text-gray-500 font-medium'>Neutral: {sentiment.neutral}%</span>
+                                <span className='text-green-600 dark:text-green-400 font-medium'>Positive: {sentiment.positive}%</span>
+                                <span className='text-gray-500 dark:text-gray-300 font-medium'>Neutral: {sentiment.neutral}%</span>
                             </div>
-                            <div className='text-red-600 font-medium'>Negative: {sentiment.negative}%</div>
+                            <div className='text-red-600 dark:text-red-400 font-medium'>Negative: {sentiment.negative}%</div>
                         </div>
                     </div>
                 </div>
@@ -273,8 +273,8 @@ const MarketNews = () => {
                                 disabled={loading}
                                 className={`px-6 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
                                     selectedCategory === category 
-                                    ? 'bg-white text-gray-900 shadow-sm'
-                                    : 'bg-transparent text-gray-600 hover:bg-white hover:shadow-sm'
+                                    ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm'
+                                    : 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:shadow-sm'
                                 } ${loading ? 'opacity-50 cursor-not-allowed' : ''}`} 
                             >
                                 {category}  
@@ -286,23 +286,23 @@ const MarketNews = () => {
                 {loading && (
                     <div className='flex flex-col items-center justify-center py-12'>
                         <Loader className='animate-spin text-blue-600 mb-4' size={48}/>
-                        <p className='text-gray-600'>Loading latest news....</p>
+                        <p className='text-gray-600 dark:text-gray-300'>Loading latest news....</p>
                     </div>
                 )}
 
                 {error && !loading && (
-                    <div className='bg-red-50 border border-red-200 rounded-lg p-6 mb-6'> {/* FIXED: border- to border */}
-                        <h3 className='text-red-800 font-semibold mb-2'>Error Loading News</h3>
-                        <p className='text-red-600 text-sm'>{error}</p>
-                        <p className='text-red-600 text-sm mt-2'>Showing fallback data instead.</p>
+                    <div className='bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 mb-6'>
+                        <h3 className='text-red-800 dark:text-red-300 font-semibold mb-2'>Error Loading News</h3>
+                        <p className='text-red-600 dark:text-red-300 text-sm'>{error}</p>
+                        <p className='text-red-600 dark:text-red-300 text-sm mt-2'>Showing fallback data instead.</p>
                     </div>
                 )}
 
                 {!loading && (
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
                         {filteredArticles.map((article) => (
-                            <div key={article.id} className='bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow'>
-                                <div className='relative h-64 bg-gray-200 overflow-hidden'>
+                            <div key={article.id} className='bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow'>
+                                <div className='relative h-64 bg-gray-200 dark:bg-gray-700 overflow-hidden'>
                                     <img
                                         src={article.image}
                                         alt={article.title}
@@ -315,27 +315,27 @@ const MarketNews = () => {
 
                                 <div className='p-6'>
                                     <div className='flex flex-wrap gap-2 mb-3'>
-                                        <span className='px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700'>
+                                        <span className='px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200'>
                                             {article.category}
                                         </span>
                                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${getSentimentColor(article.sentiment)}`}>
                                             {article.sentiment}
                                         </span>
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${getImpactColor(article.impact)}`}> {/* FIXED: function name */}
+                                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${getImpactColor(article.impact)}`}>
                                             {article.impact}
                                         </span>
                                     </div>
 
-                                    <h3 className='text-xl font-bold text-gray-900 mb-3 line-clamp-2'>
+                                    <h3 className='text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2'>
                                         {article.title}
                                     </h3>
 
-                                    <p className='text-gray-600 mb-4 line-clamp-3'>
+                                    <p className='text-gray-600 dark:text-gray-300 mb-4 line-clamp-3'>
                                         {article.description}
                                     </p>
 
-                                    <div className='flex items-center justify-between pt-4 border-t border-gray-100'>
-                                        <div className='flex items-center gap-4 text-sm text-gray-500'>
+                                    <div className='flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700'>
+                                        <div className='flex items-center gap-4 text-sm text-gray-500 dark:text-gray-300'>
                                             <span className='font-medium'>{article.source}</span>
                                             <div className='flex items-center gap-1'>
                                                 <Clock size={14}/>
@@ -346,7 +346,7 @@ const MarketNews = () => {
                                             href={article.url}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className='flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors'
+                                            className='flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm transition-colors'
                                         >
                                             Read More
                                             <ExternalLink size={16}/>
@@ -363,8 +363,8 @@ const MarketNews = () => {
                         <div className='text-gray-400 mb-4'>
                             <Search size={48} className='mx-auto'/>
                         </div>
-                        <h3 className='text-xl font-semibold text-gray-900 mb-2'>No articles found</h3>
-                        <p className='text-gray-600'>Try adjusting your search or category filter</p>
+                        <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-2'>No articles found</h3>
+                        <p className='text-gray-600 dark:text-gray-300'>Try adjusting your search or category filter</p>
                     </div>
                 )}
             </div>

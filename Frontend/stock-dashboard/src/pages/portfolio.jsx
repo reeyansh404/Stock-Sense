@@ -247,13 +247,13 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Portfolio</h1>
-            <p className="text-gray-600 mt-1">Track your investment performance</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Portfolio</h1>
+            <p className="text-gray-600 dark:text-gray-300 mt-1">Track your investment performance</p>
           </div>
           <button
             onClick={() => setShowAddModal(true)}
@@ -266,12 +266,12 @@ const Portfolio = () => {
 
         {/* Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div className="bg-white p-6 rounded-xl shadow-sm">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-gray-500 text-sm">Total Value</span>
+              <span className="text-gray-500 dark:text-gray-400 text-sm">Total Value</span>
               <span className="text-2xl">💰</span>
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">
+            <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
               ${portfolioData.totalValue.toLocaleString()}
             </div>
             <div className={`flex items-center text-sm ${portfolioData.totalChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
@@ -280,25 +280,25 @@ const Portfolio = () => {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-gray-500 text-sm">Total Positions</span>
+              <span className="text-gray-500 dark:text-gray-400 text-sm">Total Positions</span>
               <span className="text-2xl">📊</span>
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">
+            <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
               {portfolioData.positions.length}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 dark:text-gray-400">
               Across multiple markets
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-gray-500 text-sm">Best Performer</span>
+              <span className="text-gray-500 dark:text-gray-400 text-sm">Best Performer</span>
               <span className="text-2xl">🚀</span>
             </div>
-            <div className="text-xl font-bold text-gray-900 mb-1">
+            <div className="text-xl font-bold text-gray-900 dark:text-white mb-1">
               {bestPerformer ? bestPerformer.symbol : 'N/A'}
             </div>
             <div className="text-sm text-green-600">
@@ -308,12 +308,12 @@ const Portfolio = () => {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-gray-500 text-sm">Worst Performer</span>
+              <span className="text-gray-500 dark:text-gray-400 text-sm">Worst Performer</span>
               <span className="text-2xl">📉</span>
             </div>
-            <div className="text-xl font-bold text-gray-900 mb-1">
+            <div className="text-xl font-bold text-gray-900 dark:text-white mb-1">
               {worstPerformer ? worstPerformer.symbol : 'N/A'}
             </div>
             <div className="text-sm text-red-600">
@@ -325,15 +325,15 @@ const Portfolio = () => {
         </div>
 
         {/* Performance Overview */}
-        <div className="bg-white p-6 rounded-xl shadow-sm mb-6">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp size={20} className="text-gray-600" />
-            <h2 className="text-xl font-semibold text-gray-900">Performance Overview</h2>
+            <TrendingUp size={20} className="text-gray-600 dark:text-gray-300" />
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Performance Overview</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {performancePeriods.map((period) => (
               <div key={period.period} className="text-center">
-                <div className="text-sm text-gray-500 mb-1">{period.period}</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">{period.period}</div>
                 <div className={`text-lg font-semibold ${period.change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {period.change >= 0 ? '+' : ''}{period.change}%
                 </div>
@@ -343,9 +343,9 @@ const Portfolio = () => {
         </div>
 
         {/* Holdings */}
-        <div className="bg-white rounded-xl shadow-sm">
-          <div className="p-6 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+          <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
               <span className="text-2xl">📈</span>
               Holdings
             </h2>
@@ -361,36 +361,36 @@ const Portfolio = () => {
               };
 
               return (
-                <div key={position.id} className="p-4 md:p-6 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+                <div key={position.id} className="p-4 md:p-6 border-b border-gray-100 dark:border-gray-700 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                     {/* Stock Info */}
                     <div className="flex-1">
                       <div className="flex items-center justify-between lg:justify-start lg:gap-4 mb-2">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-lg text-gray-900">{position.symbol}</span>
-                            <span className="text-sm text-gray-500 hidden sm:inline">
+                            <span className="font-bold text-lg text-gray-900 dark:text-white">{position.symbol}</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400 hidden sm:inline">
                               {metrics.stockData.name}
                             </span>
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-sm text-gray-600 dark:text-gray-300">
                             {position.shares} shares @ ${position.avgPrice.toFixed(2)} avg
                           </div>
                         </div>
-                        <span className="text-sm font-medium text-gray-600 lg:hidden">
+                        <span className="text-sm font-medium text-gray-600 dark:text-gray-300 lg:hidden">
                           {position.allocation}%
                         </span>
                       </div>
 
                       {/* Progress bar */}
-                      <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2">
                         <div
                           className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                           style={{ width: `${Math.min(position.allocation * 4, 100)}%` }}
                         ></div>
                       </div>
 
-                      <div className="hidden lg:block text-sm font-medium text-gray-600">
+                      <div className="hidden lg:block text-sm font-medium text-gray-600 dark:text-gray-300">
                         {position.allocation}%
                       </div>
                     </div>
@@ -398,21 +398,21 @@ const Portfolio = () => {
                     {/* Values */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-8 text-right">
                       <div>
-                        <div className="text-sm text-gray-500">Current Value</div>
-                        <div className="font-semibold text-gray-900">
+                        <div className="text-sm text-gray-500 dark:text-gray-400">Current Value</div>
+                        <div className="font-semibold text-gray-900 dark:text-white">
                           ${metrics.currentValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </div>
                       </div>
 
                       <div>
-                        <div className="text-sm text-gray-500">Current Price</div>
-                        <div className="font-semibold text-gray-900">
+                        <div className="text-sm text-gray-500 dark:text-gray-400">Current Price</div>
+                        <div className="font-semibold text-gray-900 dark:text-white">
                           ${metrics.stockData.price.toFixed(2)}
                         </div>
                       </div>
 
                       <div>
-                        <div className="text-sm text-gray-500">Gain/Loss</div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">Gain/Loss</div>
                         <div className={`font-semibold ${metrics.gain >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                           {metrics.gain >= 0 ? '+' : ''}${Math.abs(metrics.gain).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                           <div className="text-sm">
@@ -425,13 +425,13 @@ const Portfolio = () => {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => editPosition(position)}
-                          className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                          className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                         >
                           <Edit2 size={16} />
                         </button>
                         <button
                           onClick={() => deletePosition(position.id)}
-                          className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                          className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
                         >
                           <Trash2 size={16} />
                         </button>
@@ -448,9 +448,9 @@ const Portfolio = () => {
       {/* Add Position Modal */}
       {showAddModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-md">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold">Add New Position</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Add New Position</h3>
               <button
                 onClick={() => {
                   setShowAddModal(false);
@@ -458,7 +458,7 @@ const Portfolio = () => {
                   setSearchTerm('');
                   setSearchResults([]);
                 }}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
                 <X size={24} />
               </button>
@@ -467,7 +467,7 @@ const Portfolio = () => {
             <div className="space-y-4">
               {/* Stock Search */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Search Stock
                 </label>
                 <div className="relative">
@@ -479,7 +479,7 @@ const Portfolio = () => {
                       searchStocks(e.target.value);
                     }}
                     placeholder="Search by symbol or name..."
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-900 dark:text-white"
                   />
                   <Search size={20} className="absolute right-3 top-2.5 text-gray-400" />
                   {isSearching && (
@@ -491,7 +491,7 @@ const Portfolio = () => {
 
                 {/* Search Results */}
                 {searchResults.length > 0 && (
-                  <div className="mt-2 border border-gray-200 rounded-lg max-h-40 overflow-y-auto">
+                  <div className="mt-2 border border-gray-200 dark:border-gray-700 rounded-lg max-h-40 overflow-y-auto bg-white dark:bg-gray-800">
                     {searchResults.map((stock) => (
                       <button
                         key={stock.symbol}
@@ -500,10 +500,10 @@ const Portfolio = () => {
                           setSearchTerm('');
                           setSearchResults([]);
                         }}
-                        className="w-full text-left px-4 py-2 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                        className="w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700/40 border-b border-gray-100 dark:border-gray-700 last:border-b-0"
                       >
-                        <div className="font-medium">{stock.symbol}</div>
-                        <div className="text-sm text-gray-600">{stock.name}</div>
+                        <div className="font-medium text-gray-900 dark:text-white">{stock.symbol}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-300">{stock.name}</div>
                       </button>
                     ))}
                   </div>
@@ -512,7 +512,7 @@ const Portfolio = () => {
 
               {/* Manual Symbol Entry */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Stock Symbol
                 </label>
                 <input
@@ -520,12 +520,12 @@ const Portfolio = () => {
                   value={newPosition.symbol}
                   onChange={(e) => setNewPosition(prev => ({ ...prev, symbol: e.target.value.toUpperCase() }))}
                   placeholder="e.g., AAPL"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-900 dark:text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Number of Shares
                 </label>
                 <input
@@ -533,12 +533,12 @@ const Portfolio = () => {
                   value={newPosition.shares}
                   onChange={(e) => setNewPosition(prev => ({ ...prev, shares: e.target.value }))}
                   placeholder="100"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-900 dark:text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Average Price
                 </label>
                 <input
@@ -547,7 +547,7 @@ const Portfolio = () => {
                   value={newPosition.avgPrice}
                   onChange={(e) => setNewPosition(prev => ({ ...prev, avgPrice: e.target.value }))}
                   placeholder="150.00"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-900 dark:text-white"
                 />
               </div>
             </div>
@@ -560,7 +560,7 @@ const Portfolio = () => {
                   setSearchTerm('');
                   setSearchResults([]);
                 }}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors"
               >
                 Cancel
               </button>
@@ -578,16 +578,16 @@ const Portfolio = () => {
       {/* Edit Position Modal */}
       {showEditModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-md">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold">Edit Position</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Edit Position</h3>
               <button
                 onClick={() => {
                   setShowEditModal(false);
                   setEditingPosition(null);
                   setNewPosition({ symbol: '', shares: '', avgPrice: '' });
                 }}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
                 <X size={24} />
               </button>
@@ -595,31 +595,31 @@ const Portfolio = () => {
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Stock Symbol
                 </label>
                 <input
                   type="text"
                   value={newPosition.symbol}
                   onChange={(e) => setNewPosition(prev => ({ ...prev, symbol: e.target.value.toUpperCase() }))}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-900 dark:text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Number of Shares
                 </label>
                 <input
                   type="number"
                   value={newPosition.shares}
                   onChange={(e) => setNewPosition(prev => ({ ...prev, shares: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-900 dark:text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Average Price
                 </label>
                 <input
@@ -628,7 +628,7 @@ const Portfolio = () => {
                   value={newPosition.avgPrice}
                   onChange={(e) => setNewPosition(prev => ({ ...prev, avgPrice: e.target.value }))}
                   placeholder="150.00"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-900 dark:text-white"
                 />
               </div>
             </div>
@@ -640,7 +640,7 @@ const Portfolio = () => {
                   setEditingPosition(null);
                   setNewPosition({ symbol: '', shares: '', avgPrice: '' });
                 }}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors"
               >
                 Cancel
               </button>

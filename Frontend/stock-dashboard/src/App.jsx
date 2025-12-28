@@ -6,6 +6,8 @@ import Home from './pages/home';
 import Market from './pages/market';
 import Portfolio from './pages/portfolio';
 import MarketNews from './pages/news';
+import Settings from './pages/settings';
+import Help from './pages/help';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/market" element={<Market />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/news" element={<MarketNews />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/help" element={<Help />} />
           </Routes>
         </main>
       </div>

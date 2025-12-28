@@ -125,10 +125,10 @@ export default function Home(){  // Changed from StockDashboard to Home
     }
 
     return(
-        <div className="p-8 bg-gray-50 min-h-screen">
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 min-h-screen">
             {/* Stock Price Chart Selection */}
-            <div className="bg-white rounded-xl shadow sm border border-gray-200 p-6 mb-8">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Stock Price Chart</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Stock Price Chart</h2>
 
                 <div className="flex items-center mb-6">
                     <input
@@ -136,7 +136,7 @@ export default function Home(){  // Changed from StockDashboard to Home
                         value={searchSymbol}
                         onChange={(e) => setSearchSymbol(e.target.value.toUpperCase())}
                         onKeyDown={(e) => e.key === 'Enter' && handleSearch()} 
-                        className="flex-1 px-4 py-3 bg-gray-100 border-0 rounded-lg focus:ring-2 focus:ring-blue-500 focus:bg-white text-lg font-medium"
+                        className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-gray-600 text-lg font-medium text-gray-900 dark:text-white"
                         placeholder="Enter stock symbol (eg. AAPL, GOOGL, TSLA)..."
                         disabled={loading}
                     />
@@ -151,15 +151,15 @@ export default function Home(){  // Changed from StockDashboard to Home
                 </div>
 
                 {error && (
-                    <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                        <p className="text-red-600 text-sm">{error}</p>
-                        <p className="text-red-500 text-xs mt-1">Showing demo data instead. Get a free API key from Alpha Vantage to use live data.</p>
+                    <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                        <p className="text-red-600 dark:text-red-300 text-sm">{error}</p>
+                        <p className="text-red-500 dark:text-red-400 text-xs mt-1">Showing demo data instead. Get a free API key from Alpha Vantage to use live data.</p>
                     </div>
                 )}
 
                 <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-gray-900">{searchSymbol} Stock Price</h3>
-                    <div className="text-sm text-gray-500">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{searchSymbol} Stock Price</h3>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
                         Last updated: {new Date().toLocaleTimeString()}
                     </div>
                 </div>
@@ -170,7 +170,7 @@ export default function Home(){  // Changed from StockDashboard to Home
                         <div className="h-full flex items-center justify-center">
                             <div className="text-center">
                                 <RefreshCw className="w-8 h-8 animate-spin text-blue-600 mx-auto mb-2"/>
-                                <p className="text-gray-600">Loading stock data...</p>
+                                <p className="text-gray-600 dark:text-gray-300">Loading stock data...</p>
                             </div>
                         </div>
                     ): stockData.length > 0 ? (
@@ -199,7 +199,7 @@ export default function Home(){  // Changed from StockDashboard to Home
                         </ResponsiveContainer>
                     ) : (
                         <div className="h-full flex items-center justify-center">
-                            <p className="text-gray-500">No data available</p>
+                            <p className="text-gray-500 dark:text-gray-400">No data available</p>
                         </div>
                     )}
                 </div>
@@ -207,18 +207,18 @@ export default function Home(){  // Changed from StockDashboard to Home
                 {/* Stock Metrics */}
                 <div className="grid grid-cols-3 gap-8">
                     <div>
-                        <p className="text-sm font-medium text-gray-600 mb-1">Current Price</p>
-                        <p className="text-2xl font-bold text-gray-900">${currentPrice.toFixed(2)}</p>
+                        <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">Current Price</p>
+                        <p className="text-2xl font-bold text-gray-900 dark:text-white">${currentPrice.toFixed(2)}</p>
                     </div>
                     <div>
-                        <p className="text-sm font-medium text-gray-600 mb-1">Daily Change</p>
+                        <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">Daily Change</p>
                         <p className={`text-2xl font-bold ${changePercent >= 0 ? 'text-green-600': 'text-red-600'}`}>
                             {changePercent >= 0 ? '+' : ''}{changePercent.toFixed(2)}%
                         </p>
                     </div>
                     <div>
-                        <p className="text-sm font-medium text-gray-600 mb-1">Volume</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatVolume(volume)}</p>
+                        <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">Volume</p>
+                        <p className="text-2xl font-bold text-gray-900 dark:text-white">{formatVolume(volume)}</p>
                     </div>
                 </div>
             </div>
@@ -226,21 +226,21 @@ export default function Home(){  // Changed from StockDashboard to Home
             {/* Bottom Section */}
             <div className="grid grid-cols-2 gap-8">
                 {/* Sentiment Analysis */}
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Sentiment Analysis</h3>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Sentiment Analysis</h3>
                     <textarea
                         value={sentimentText}
                         onChange={(e) => setSentimentText(e.target.value)}
                         placeholder="Enter news headline or tweet"
-                        className="w-full h-32 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full h-32 px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white"
                     />
                 </div>
 
                 {/* Stock Prediction */}
-                <div className = "bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <div className = "bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                     <div className="flex items-center justify-between mb-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Stock Prediction</h3>
-                        <button className="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Stock Prediction</h3>
+                        <button className="w-8 h-8 rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 flex items-center justify-center hover:bg-gray-800 dark:hover:bg-white">
                             <span className="text-sm font-bold">?</span>
                         </button>
                     </div>
