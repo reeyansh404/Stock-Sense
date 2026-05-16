@@ -1,7 +1,7 @@
 # React + Vite
 ## Live Demo
 
-[View Live Application](stock-sense-five.vercel.app)
+[View Live Application](https://stock-sense-9oue9dhd1-reeyansh-s-projects.vercel.app/)
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
