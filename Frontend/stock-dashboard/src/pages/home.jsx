@@ -14,7 +14,7 @@ export default function Home(){  // Changed from StockDashboard to Home
     const [error, setError] = useState('');
 
     //Alpha Vantage API key (free tier)
-    const API_KEY = '3CK6MPS1HMO1QGFQ'; 
+    const API_KEY = import.meta.env.VITE_ALPHA_VANTAGE_API_KEY;
 
     const fetchStockData = async (symbol) => {
         setLoading(true);
@@ -111,7 +111,21 @@ export default function Home(){  // Changed from StockDashboard to Home
 
     // Add useEffect to load initial data
     useEffect(() => {
-        fetchStockData('AAPL');
+    setStockData([
+        { time: '09:30', price: 185.2 },
+        { time: '10:00', price: 186.8 },
+        { time: '10:30', price: 187.2 },
+        { time: '11:00', price: 186.5 },
+        { time: '11:30', price: 188.9 },
+        { time: '12:00', price: 189.8 },
+        { time: '12:30', price: 190.1 },
+        { time: '13:00', price: 189.2 },
+        { time: '13:30', price: 191.5 },
+    ]);
+    setCurrentPrice(189.45);
+    setDailyChange(4.32);
+    setChangePercent(2.34);
+    setVolume(45200000);
     }, []);
 
     const formatVolume = (vol) => {
