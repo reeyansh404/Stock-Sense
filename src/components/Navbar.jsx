@@ -23,7 +23,7 @@ export default function Navbar() {
           {/* Left: Logo */}
           <div className="flex items-center gap-3">
             <Link to="/home" className="flex items-center gap-2">
-              <img src="/Logo/Stock_Sense.png" alt="Logo" className="h-8" />
+              <img src="/logo.png" alt="Logo" className="h-8" />
               <span className="font-bold text-lg text-gray-800 dark:text-white hidden sm:block">
                 Stock Sense
               </span>
